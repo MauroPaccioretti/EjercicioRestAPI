@@ -15,7 +15,7 @@ namespace ejercicioRestAPI.Controllers
             return Ok(UsuariosData.Instancia.Usuarios);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id}", Name = "GetUsuarios")]
         public ActionResult<UsuarioDto> GetUsuario(int id)
         {
             var usuarioARetornar = UsuariosData.Instancia.Usuarios.FirstOrDefault(x => x.Id == id);
