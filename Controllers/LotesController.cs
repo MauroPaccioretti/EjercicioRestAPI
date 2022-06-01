@@ -9,7 +9,7 @@ namespace ejercicioRestAPI.Controllers
     public class LotesController : ControllerBase
     {
         [HttpGet]
-        public ActionResult<List<LoteDto>> GetLotes(int idUsuario)
+        public ActionResult<List<LoteDto>> GetLotes(int idUsuario) //get usuario??
         {
             var usuario = UsuariosData.Instancia.Usuarios.FirstOrDefault(x => x.Id == idUsuario);
             if (usuario == null) return NotFound("Usuario no encontrado");
