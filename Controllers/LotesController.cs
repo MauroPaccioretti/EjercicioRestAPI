@@ -39,7 +39,7 @@ namespace ejercicioRestAPI.Controllers
             var usuario = UsuariosData.Instancia.Usuarios.FirstOrDefault(c => c.Id == idUsuario);
             if (usuario is null)
             {
-                return NotFound();
+                return NotFound("El usuario no existe");
             }
 
             var idMaximoPuntosDeInteres = UsuariosData.Instancia.Usuarios.SelectMany(c => c.Lotes).Max(p => p.Id);
@@ -69,7 +69,7 @@ namespace ejercicioRestAPI.Controllers
             var usuario = UsuariosData.Instancia.Usuarios.FirstOrDefault(c => c.Id == idUsuario);
 
             if (usuario == null)
-                return NotFound();
+                return NotFound("El usuario no existe");
 
             var loteEnLaBase = usuario.Lotes.FirstOrDefault(p => p.Id == idLote);
             if (loteEnLaBase == null)
