@@ -73,7 +73,7 @@ namespace ejercicioRestAPI.Controllers
 
             var loteEnLaBase = usuario.Lotes.FirstOrDefault(p => p.Id == idLote);
             if (loteEnLaBase == null)
-                return NotFound();
+                return NotFound("El lote no existe");
 
             loteEnLaBase.Name = lote.Name;
             loteEnLaBase.Description = lote.Description;
@@ -91,7 +91,7 @@ namespace ejercicioRestAPI.Controllers
             var loteAEliminar = usuario.Lotes
                 .FirstOrDefault(p => p.Id == idLote);
             if (loteAEliminar is null)
-                return NotFound();
+                return NotFound("El lote no existe");
 
             usuario.Lotes.Remove(loteAEliminar);
 

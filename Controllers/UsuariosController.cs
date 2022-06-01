@@ -20,7 +20,7 @@ namespace ejercicioRestAPI.Controllers
         {
             var usuarioARetornar = UsuariosData.Instancia.Usuarios.FirstOrDefault(x => x.Id == id);
             if (usuarioARetornar == null)
-                return NotFound();
+                return NotFound("El usuario no existe");
             return Ok(usuarioARetornar);
         }
         [HttpPost]
@@ -48,7 +48,7 @@ namespace ejercicioRestAPI.Controllers
             var usuario = UsuariosData.Instancia.Usuarios.FirstOrDefault(e => e.Id == id);
 
             if (usuario == null)
-                return NotFound();
+                return NotFound("El usuario no existe");
             usuario.Name = user.Name;
 
             return NoContent();
@@ -60,7 +60,7 @@ namespace ejercicioRestAPI.Controllers
             var listaUsuarios = UsuariosData.Instancia.Usuarios;
             var usuario = UsuariosData.Instancia.Usuarios.FirstOrDefault(e => e.Id == id);
             if (usuario is null)
-                return NotFound();
+                return NotFound("El usuario no existe");
             listaUsuarios.Remove(usuario);
 
             return NoContent();
