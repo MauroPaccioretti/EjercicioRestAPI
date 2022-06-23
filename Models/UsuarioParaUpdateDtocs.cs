@@ -8,11 +8,5 @@ namespace ejercicioRestAPI.Models
         [MaxLength(50)]
         public string Name { get; set; } = string.Empty;
 
-        public List<LoteDto> Lotes { get; set; } = new List<LoteDto>();
-
-        public int CantidadLotes
-        {
-            get { return Lotes.Count; }
-        }
     }
 }
